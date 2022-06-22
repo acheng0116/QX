@@ -583,7 +583,7 @@ HOST-SUFFIX,afs.googlesyndication.com, reject
 HOST-SUFFIX,afd.l.google.com, reject
 HOST-SUFFIX,www.googleadservices.com, reject
 HOST-SUFFIX,www.google-analytics.com, reject
-HOST,ads.youtube.com, reject
+
 # (H)
 # > 湖南卫视
 HOST-SUFFIX,da.mgtv.com, reject
@@ -1448,7 +1448,6 @@ HOST-SUFFIX,zamplus.com, reject
 HOST-SUFFIX,azabu-u.ac.jp, reject
 HOST-SUFFIX,couchcoaster.jp, reject
 HOST-SUFFIX,delivery.dmkt-sp.jp, reject
-HOST-SUFFIX,ehg-youtube.hitbox.com, reject
 HOST-SUFFIX,m-78.jp, reject
 HOST-SUFFIX,nichibenren.or.jp, reject
 HOST-SUFFIX,nicorette.co.kr, reject
@@ -1459,6 +1458,7 @@ HOST-SUFFIX,afp.pplive.com, reject
 HOST-SUFFIX,app.aplus.pptv.com, reject
 HOST-SUFFIX,as.aplus.pptv.com, reject
 HOST-SUFFIX,jp.as.pptv.com, reject
+
 HOST-SUFFIX,pp2.pptv.com, reject
 HOST-SUFFIX,stat.pptv.com, reject
 HOST-SUFFIX,static.g.pptv.com, reject
