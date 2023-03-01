@@ -1,42 +1,13 @@
-#############################################
-# "reject"        策略返回 HTTP 状态码 404,不附带任何额外内容
-# "reject-200"    策略返回 HTTP 状态码 200,不附带任何额外内容
-# "reject-img"    策略返回 HTTP 状态码 200,同时附带 1px gif
-# "reject-dict"   策略返回 HTTP 状态码 200,同时附带一个空的 JSON 对象
-# "reject-array"  策略返回 HTTP 状态码 200,同时附带一个空的 JSON 数组
-#############################################
-
 # 去重后的hostname，将对以下域名进行MITM（MAN-IN-THE-MIDDLE：中间人攻击）
-hostname = %APPEND% *.ugdtimg.com, *.qq.com, *.googleapis-cn.com, *.googleadservices.com, *.doubleclick.net, *.umengcloud.com, *.ugdtimg.com, *.pglstatp-toutiao.com, *.umeng.com, *.shenbabao.com, *.pangolin-sdk-toutiao.com, *.pangolin-sdk-toutiao.com, *.pinduoduo.com
 
-# >>>>>>>>>>>>>>> ✅ 1 ✅ <<<<<<<<<<<<<<
+hostname = *.ugdtimg.com, *.qq.com, *.googleapis-cn.com, *.googleadservices.com, *.doubleclick.net, *.umengcloud.com, *.ugdtimg.com, *.pglstatp-toutiao.com, *.umeng.com, *.shenbabao.com, *.pangolin-sdk-toutiao.com, *.pangolin-sdk-toutiao.com, *.pinduoduo.com
+
 # > 爱阅书香
-^https?:\/\/alogs\.(umeng|umengcloud)\.com\/app_logs - reject
-# toutiao
-^https?:\/\/.+\.pglstatp-toutiao\.com\/web\.business\.image - reject
-# ^https?:\/\/.+\.pglstatp-toutiao\.com\/obj\/ad-pattern\/renderer\/package\.json\?.+ - reject
-# ^https?:\/\/.+\.pglstatp-toutiao\.com\/obj\/ad-pattern\/renderer\/.+\/.+\.js - reject
-^https?:\/\/.+\.pglstatp-toutiao\.com\/.+\/.+\/video\/tos\/cn\/.+\/.+\/.+\.mp4 - reject
-# ^https?:\/\/.+\.pglstatp-toutiao\.com\/obj\/union-fe-nc\/endcard\/sdk\/.+\.js\?.+ - reject
-^https?:\/\/.+\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/stats\/batch\/?.+ - reject
-^https?:\/\/.+\.pangolin-sdk-toutiao\.com\/union\/endcard\/.+\/\?.+ - reject
-# ^https?:\/\/.+\.pangolin-sdk-toutiao-b\.com\/service\/2\/app_log\/\?.+ - reject
-# ^https?:\/\/.+\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/.+ - reject
-^https?:\/\/.+\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/settings\/?.+ - reject
-# ^https?:\/\/.+\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads\/\?.+ - reject
-# pinduoduo
-^http?:\/\/.+\.pinduoduo\.com\/marketing_api\/.+\/.+\.(png|jpeg|jpg|mp4) - reject
-# google
-^https?:\/\/googleads\..+\.doubleclick\.net\/mads\/static\/mad\/sdk\/native\/.+\.js - reject
-^https?:\/\/.+\.googleadservices\.com\/pagead\/.+\?.+ - reject
-^https?:\/\/.+\/doubleclick\.net\/.+ - reject
-# ^https?:\/\/.+\.googleapis-cn\.com\/v4\/threatListUpdates:fetch\?.+ - reject
-# QQ
-^https?:\/\/.+\.gdt.qq.com\/.+\.fcg\?.+ - reject
-# ^https?:\/\/dp3.qq.com\/attr\?.+ - reject
-# ^https?:\/\/otheve.beacon.qq.com\/.+\/.+\?.+ - reject
-# Unknow
-# ^https?:\/\/.+\.gdtimg\.com\/union\/res\/union_temp_v2\/page\/ANTempMob\/tempMob\..+\.package\.json -reject header
-^https?:\/\/.+\.ugdtimg\.com\/gdt\/0\/.+\.(png|jpeg|jpg|mp4) - reject
-# ^https?:\/\/.+\.ugdtimg\.com\/141\/20204\/snscosdownload\/.+\/reserved\/.+ - reject
-^https?:\/\/.+\.ugdtimg\.com\/ads_svp_video__.+\.f.+\.(png|jpeg|jpg|mp4)\?.+ - reject
+^https?:\/\/.+\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/(stats|settings)\/.+ REJECT-DICT
+^https?:\/\/.+\.pangolin-sdk-toutiao\.com\/union\/endcard\/.+\/\?.+ REJECT-200
+^https?:\/\/.+\.pinduoduo\.com\/marketing_api\/.+\/.+\.(png|jpeg|jpg|mp4) REJECT-200
+^https?:\/\/googleads\..+\.doubleclick\.net\/mads\/(gma|static\/mad\/sdk\/native).+ REJECT-200
+^https?:\/\/.+\.googleadservices\.com\/pagead\/.+\?.+ REJECT-200
+^https?:\/\/.+\.gdt.qq.com\/.+\.fcg\?.+ REJECT-200
+^https?:\/\/.+\.ugdtimg\.com\/gdt\/0\/.+\.(png|jpeg|jpg|mp4) REJECT-200
+^https?:\/\/.+\.ugdtimg\.com\/ads_svp_video__.+\.f.+\.(png|jpeg|jpg|mp4)\?.+ REJECT-200
